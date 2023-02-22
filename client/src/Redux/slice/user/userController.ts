@@ -13,7 +13,6 @@ export async function userFetch(user: any) {
 
   const response = await fetch(`${API_URL}/users/email/${email}`);
   const data = await response.json();
-
   return data;
 }
 
@@ -32,18 +31,6 @@ export async function putUserFetch(
   return data;
 }
 
-// export async function addFavoriteFetch(_id: string, product: ProductState) {
-//   const productSend = { product: product };
-//   const response = await fetch(`${API_URL}/users/${_id}`, {
-//     method: 'PUT',
-//     body: JSON.stringify(productSend),
-//     headers: { 'Content-Type': 'application/json' },
-//   });
-
-//   const data = await response.json();
-
-//   return data;
-// }
 export async function addFavoriteFetch(
   _id: string,
   product: ProductState,
@@ -51,16 +38,12 @@ export async function addFavoriteFetch(
 ) {
   const productSend = { product: product };
   const newFavoritesSends = { newFavorites: newFavorites };
-  //console.log("Fetch_Add_Product",newFavorites);
-
   const response = await fetch(`${API_URL}/users/${_id}`, {
     method: 'PUT',
     body: JSON.stringify(newFavoritesSends),
     headers: { 'Content-Type': 'application/json' },
   });
-
   const data = await response.json();
-
   return data;
 }
 
@@ -71,8 +54,6 @@ export async function removeFavoriteFetch(_id: string, product: ProductState) {
     body: JSON.stringify(unfavorite),
     headers: { 'Content-Type': 'application/json' },
   });
-
   const data = await response.json();
-
   return data;
 }
