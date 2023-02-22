@@ -5,8 +5,8 @@ const FilterByCategory: React.FC<{}> = () => {
 
   return (
     <div className="new-container-category">
-      <select className="select-category" name="" onChange={handlerChange}>
-        <option className="option-categority" selected value="">
+      <select className="select-category" onChange={handlerChange}>
+        <option className="option-categority" defaultValue='-----' value="">
           ----
         </option>
         <option className="option-categority" value="63bebb1fe29c7344a53f6c29">

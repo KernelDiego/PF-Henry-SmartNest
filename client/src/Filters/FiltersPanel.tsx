@@ -14,7 +14,6 @@ import filterRating from '../assets/images/icons/filter/filterRating.png';
 import filterPrice from '../assets/images/icons/filter/filterPrice.png';
 import filterCategory from '../assets/images/icons/filter/filterCategory.png';
 import filterSpace from '../assets/images/icons/filter/filterSpace.png';
-import Sorters from './components/sorters/Sorters';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
