@@ -82,7 +82,7 @@ export const News = () => {
         //slicedNew.length > 0 ? (
         <div className="news_firstLine">
           {slicedNew?.map((news) => (
-            <div className="news_cardRow">
+            <div className="news_cardRow" key={news.link}>
               <a className="news_card" href={news.link} target="_blank">
                 <img src={news.media} alt="firstNews" />
                 <div className="news_content">
