@@ -77,7 +77,7 @@ const QuickLookModal: React.FC<Props> = ({
               </div>
               <div className='thumbnail-container'>
                 {thumbnailImages?.map((image, i) => (
-                  <div className='container-image'>
+                  <div className='container-image' key={i}>
                     <img
                       src={image}
                       key={i}

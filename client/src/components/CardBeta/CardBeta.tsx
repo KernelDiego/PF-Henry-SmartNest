@@ -1,55 +1,59 @@
-import React, { useEffect, useState, ChangeEvent, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Rating } from '@mui/material';
-import { toast, Zoom } from 'react-toastify';
-import onLike from '../../assets/foro/DarkMode/onLike.svg';
-import outLike from '../../assets/foro/DarkMode/outLike.svg';
-import outLikeBlue from '../../assets/foro/DarkMode/outHeartblue.svg';
-import onLikeBlue from '../../assets/foro/DarkMode/onHeartblue.svg';
-import { useAppDispatch, useAppSelector } from '../../Redux/hook';
-import { addFavoriteFetch } from '../../Redux/slice/user/userController';
-import { addFavorite } from '../../Redux/slice/user/user.slice';
-import { userInterface, getUserLogin } from '../../Redux/slice/user/user.slice';
+import React, { useEffect, useState, ChangeEvent, useRef } from "react";
+import { useAppDispatch, useAppSelector } from "../../Redux/hook";
+import { Link } from "react-router-dom";
+import { Rating } from "@mui/material";
+import { toast, Zoom } from "react-toastify";
+import { useAuth0 } from "@auth0/auth0-react";
 
-import { changePagination, FilterState, ProductState } from '../../Redux/slice/product/product.slice';
-import { getProduct } from '../../Redux/slice/product/product.slice';
-import { productFetch } from '../../Redux/slice/product/ProductController';
-import PaginationComp from '../Pagination';
-import QuickLookModal from './QuickLookModal';
-import { useAuth0 } from '@auth0/auth0-react';
+import onLike from "../../assets/foro/DarkMode/onLike.svg";
+import outLike from "../../assets/foro/DarkMode/outLike.svg";
+import outLikeBlue from "../../assets/foro/DarkMode/outHeartblue.svg";
+import onLikeBlue from "../../assets/foro/DarkMode/onHeartblue.svg";
 
-import { addProduct, deleteProduct } from '../../Redux/slice/shoppingCart/shoppingCart.slice';
-import { ProductCart } from '../../Redux/slice/shoppingCart/shoppingCart.slice';
+import { addFavoriteFetch } from "../../Redux/slice/user/userController";
+import { addFavorite } from "../../Redux/slice/user/user.slice";
+import { userInterface } from "../../Redux/slice/user/user.slice";
+import { changePagination, FilterState, ProductState } from "../../Redux/slice/product/product.slice";
+import { getProduct } from "../../Redux/slice/product/product.slice";
+import { productFetch } from "../../Redux/slice/product/ProductController";
+import { addProduct, deleteProduct } from "../../Redux/slice/shoppingCart/shoppingCart.slice";
+import { ProductCart } from "../../Redux/slice/shoppingCart/shoppingCart.slice";
 
-import favoriteUnset_w from '../../assets/images/icons/favorite/favorite_w.png';
-import favoriteSet_w from '../../assets/images/icons/favorite/favorite_b.png';
-import AddFavoritesModal from './AddFavoritesModal';
-
+import PaginationComp from "../Pagination";
+import QuickLookModal from "./QuickLookModal";
+import AddFavoritesModal from "./AddFavoritesModal";
 import ScrollUp from "../scrollUp/ScrollUp";
 
 const CardBeta: React.FC<{}> = () => {
-  const Allproduct: ProductState[] = useAppSelector((state) => state.productReducer.Products);
-  const productsInCart = useAppSelector((state) => state.cartReducer.Products);
-  const userByBd: userInterface = useAppSelector((state) => state.userReducer.userState);
+  const Allproduct: ProductState[] = useAppSelector(
+    state => state.productReducer.Products
+  );
+  const productsInCart = useAppSelector(state => state.cartReducer.Products);
+  const userByBd: userInterface = useAppSelector(
+    state => state.userReducer.userState
+  );
   const [getFavorites, setGetFavorites] = useState<ProductState[]>([]);
 
-  const filters: FilterState = useAppSelector((state) => state.productReducer.Filters);
-  const currentPage: number = useAppSelector((state) => state.productReducer.Pagination);
+  const filters: FilterState = useAppSelector(
+    state => state.productReducer.Filters
+  );
+  const currentPage: number = useAppSelector(
+    state => state.productReducer.Pagination
+  );
 
   const ref = useRef<HTMLDivElement>(null);
-  const refMovile = useRef<HTMLDivElement>(null);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    productFetch().then((res) => {
+    productFetch().then(res => {
       dispatch(getProduct(res));
     });
   }, []);
 
   useEffect(() => {
     if (!Allproduct.length) {
-      productFetch().then((res) => {
+      productFetch().then(res => {
         dispatch(getProduct(res));
       });
     }
@@ -72,15 +76,15 @@ const CardBeta: React.FC<{}> = () => {
 
     dispatch(addProduct(productCart));
 
-    toast.success('Product added to Cart', {
-      position: 'top-center',
+    toast.success("Product added to Cart", {
+      position: "top-center",
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: 'colored',
+      theme: "colored",
       transition: Zoom,
     });
   };
@@ -88,27 +92,24 @@ const CardBeta: React.FC<{}> = () => {
   const handleRemoveCart = (product: ProductState) => {
     dispatch(deleteProduct(product._id));
 
-    toast.error('Product removed from Cart', {
-      position: 'top-center',
+    toast.error("Product removed from Cart", {
+      position: "top-center",
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: 'colored',
+      theme: "colored",
       transition: Zoom,
     });
   };
 
-  // const product = state.Products.find
-
   //----------------------> FAVORITES CARD FEATURES
   const [modalOpen, setModalOpen] = useState(false);
-  const dark: boolean = useAppSelector((state) => state.themeReducer.dark);
+  const dark: boolean = useAppSelector(state => state.themeReducer.dark);
   const { user, isAuthenticated } = useAuth0();
 
-  //!--------------------------------------------------------------------------------------
   const handleToggleFavorite = async (product: ProductState) => {
     if (isAuthenticated && user?.email_verified) {
       const newFavorite: ProductState = {
@@ -129,70 +130,68 @@ const CardBeta: React.FC<{}> = () => {
       if (!actualFavorites.length) {
         actualFavorites = [newFavorite];
       } else {
-        const findFavo = actualFavorites.find((favorite) => favorite._id === newFavorite._id);
+        const findFavo = actualFavorites.find(
+          favorite => favorite._id === newFavorite._id
+        );
 
         if (findFavo?._id) {
-          actualFavorites = actualFavorites.filter((favorite) => favorite._id !== newFavorite._id);
+          actualFavorites = actualFavorites.filter(
+            favorite => favorite._id !== newFavorite._id
+          );
 
-          toast.error('Product removed from favorites', {
-            position: 'top-center',
+          toast.error("Product removed from favorites", {
+            position: "top-center",
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'colored',
+            theme: "colored",
             transition: Zoom,
           });
         } else {
           actualFavorites = [...actualFavorites, newFavorite];
 
-          toast.success('Product added to favorites', {
-            position: 'top-center',
+          toast.success("Product added to favorites", {
+            position: "top-center",
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'colored',
+            theme: "colored",
             transition: Zoom,
           });
         }
       }
 
-      const userUpdate = await addFavoriteFetch(userByBd._id, newFavorite, actualFavorites);
+      const userUpdate = await addFavoriteFetch(
+        userByBd._id,
+        newFavorite,
+        actualFavorites
+      );
       dispatch(addFavorite(userUpdate.favorites));
       setGetFavorites(userUpdate.favorites);
     } else {
       setModalOpen(true);
     }
   };
+  //!--------------------------------------------------------------------------------------
 
-  //!--------------------------------------------------------------------------------------
-  //!--------------------------------------------------------------------------------------
-  //handleToggleFavorite({});
   //-----------------------> Helper Functions <----------------------
-
   const priceFormat = (productPrice: number) => {
     const formattedNumber = productPrice.toFixed(2);
     return formattedNumber;
   };
 
   //-----------------> PAGINATION <----------------------------------
-
-  // const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
 
   const handlePageChange = (pageNumber: number) => {
     dispatch(changePagination(pageNumber));
-    // setCurrentPage(pageNumber);
   };
-
-  // useEffect(() => {
-  //   handlePageChange(1);
-  // }, [filters]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -209,7 +208,7 @@ const CardBeta: React.FC<{}> = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className='container-render-card-v-beta' >
+    <div className='container-render-card-v-beta'>
       <div className='container-card-beta' ref={ref}>
         {currentItems?.map(product => {
           let iconFavorite = dark ? outLike : outLikeBlue;
@@ -233,11 +232,7 @@ const CardBeta: React.FC<{}> = () => {
                 <QuickLookModal
                   product={product}
                   handleAddCart={handleAddCart}
-                  // handleRemoveCart={handleRemoveCart}
                   priceFormat={priceFormat}
-
-                  // handleCloseModal={handleCloseModal}
-                  // showModal={showModal}
                 />
               </div>
 
@@ -329,7 +324,6 @@ const CardBeta: React.FC<{}> = () => {
           handlePageChange={handlePageChange}
         />
       </div>
-      {/* <ScrollUp refUse={refMovile} /> */}
     </div>
   );
 };
