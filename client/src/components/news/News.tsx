@@ -28,7 +28,6 @@ interface NewsData {
 }
 
 export const News = () => {
-  console.log(data.articles);
   const mi = data.articles;
 
   const [news, setNews] = useState<NewsData[]>(mi);
