@@ -11,7 +11,7 @@ const obj = [
   { name: 'Lifestyle and Health', id: '63c6d27b2fbbfb7b7911edf2' },
 ];
 
-const allProductsQuantity = async () => {
+export const allProductsQuantity = async () => {
   const promisesObj = obj.map((category) =>
     ProductModel.find({
       categories: category.id,
@@ -24,12 +24,10 @@ const allProductsQuantity = async () => {
   return await Promise.all(promisesObj).then((resp) =>
     resp.map((res) => {
       return {
-        name: Object.entries(res)[0][1].categories.name,
-        id: Object.entries(res)[0][1].categories._id,
-        quantity: res.length,
+        name: (Object.entries(res)[0][1] as { categories: { name: string; _id: string } })?.categories.name,
+        id: (Object.entries(res)[0][1] as { categories: { name: string; _id: string } }).categories._id,
+        quantity: res.length as number,
       };
     }),
   );
 };
-
-module.exports = { allProductsQuantity };

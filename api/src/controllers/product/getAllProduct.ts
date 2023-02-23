@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { allFilters } from "../../helpers/filter/allFilters";
-import { allProductsCategories } from "../../helpers/filter/allProductsCategories.js";
+import { allProductsCategories } from "../../helpers/filter/allProductsCategories";
 
 export const getAllProduct = async (req: Request, res: Response) => {
   try {

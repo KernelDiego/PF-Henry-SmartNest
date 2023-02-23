@@ -1,9 +1,9 @@
 import { getModelForClass } from "@typegoose/typegoose";
 import { Product } from "../../models/Product";
-import { filterRange, filterPrice } from "./filterRange.js";
-import { allProductsCategories } from "./allProductsCategories.js";
+import { filterRange, filterPrice } from "./filterRange";
+import { allProductsCategories } from "./allProductsCategories";
 import { orderProducts } from "../order/orderProducts.js";
-import { nameProduct } from "../../helpers/filter/nameProduct.js";
+import { nameProduct } from "../../helpers/filter/nameProduct";
 
 const ProductModel = getModelForClass(Product);
 
@@ -13,7 +13,6 @@ export const allFilters = async (query: any) => {
 
   if (filter) {
     if (filter.categories && filter.categories.length) {
-      console.log(filter.categories.length);
       products = await ProductModel.find({
         categories: filter.categories,
       }).populate({
@@ -41,9 +40,7 @@ export const allFilters = async (query: any) => {
       products = filterRange(products, filter.stock, "stock");
   } else products = await allProductsCategories()
 
-  if (order && products) {
-    products = orderProducts(products, order)
-  }
-
+  if (order && products) products = orderProducts(products, order)
+  
   return products;
 };

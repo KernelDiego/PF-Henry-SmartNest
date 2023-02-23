@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { allProductsQuantity } from "../../helpers/filter/allProductsQuantity.js";
+import { allProductsQuantity } from "../../helpers/filter/allProductsQuantity";
 
 export const getQuantityCategories = async (req: Request, res: Response) => {
   try {
