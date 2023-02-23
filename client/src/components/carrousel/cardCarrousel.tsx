@@ -90,7 +90,7 @@ const Card: React.FC<Props> = ({ product }) => {
       <div className='HomeCard_AddCartButtonContainer'>
         {product.stock > 0 && !productsInCart.find((el) => el._id === product._id) ? (
           <button className='Home_add-car-card-beta' onClick={() => handleAddCart(product)}>
-            add to Cart
+            Add to Cart
           </button>
         ) : product.stock > 0 && productsInCart.find((el) => el._id === product._id) ? (
           <button className='Home_add-car-card-beta' onClick={() => handleRemoveCart(product)}>
@@ -108,7 +108,7 @@ const Card: React.FC<Props> = ({ product }) => {
               cursor: 'no-drop',
             }}
           >
-            out of Stock
+            Out of Stock
           </button>
         )}
       </div>

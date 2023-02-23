@@ -185,7 +185,7 @@ const ShoppingCart = () => {
                           </Select>
                         </FormControl>
                       ) : (
-                        <p>out of Stock</p>
+                        <p>Out of Stock</p>
                       )}
                     </ThemeProvider>
                   </div>

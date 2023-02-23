@@ -303,7 +303,7 @@ const CardBeta: React.FC<{}> = () => {
                     }}
                   >
                     <p style={{ color: "rgba(20, 20, 20, 0.8)" }}>
-                      out of Stock
+                      Out of Stock
                     </p>
                   </div>
                 )}
