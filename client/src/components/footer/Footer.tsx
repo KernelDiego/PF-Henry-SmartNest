@@ -1,7 +1,3 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';
@@ -9,7 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ForumIcon from '@mui/icons-material/Forum';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import GroupsIcon from '@mui/icons-material/Groups';
-import { VITE_CLIENT_URL } from "../../config";
+import { VITE_CLIENT_URL } from "../../../config";
 
 export default function Footer() {
   return (

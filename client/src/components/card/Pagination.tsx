@@ -1,13 +1,11 @@
-import React from "react";
-import btnNext from "../assets/images/buttons/paginationBtnNext.png";
-import btnPrev from "../assets/images/buttons/paginationBtnBack.png";
+import btnNext from "../../assets/images/buttons/paginationBtnNext.png";
+import btnPrev from "../../assets/images/buttons/paginationBtnBack.png";
 
 interface PagProps {
   itemsPerPage: number;
   totalItems: number;
   currentPage: number;
   handlePageChange: (pageNumber: number) => void;
-  //   handlePageChange: (event: ChangeEvent<unknown>) => void;
 }
 
 const PaginationComp: React.FC<PagProps> = ({
@@ -35,7 +33,6 @@ const PaginationComp: React.FC<PagProps> = ({
             <button
               key={number + "pagination"}
               title='pagination selector'
-              // style={{backgroundImage:`url(${btnSet})`}}
               onClick={() => handlePageChange(number)}
               className={`pagination-button ${
                 number === currentPage ? "active" : ""

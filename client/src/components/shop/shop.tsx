@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import FiltersPanel from "../filters/FiltersPanel";
-import Breadcrumb from "../BreadCrumb";
 import Card from "../card/CardBeta";
 import ScrollUp from "../scrollUp/ScrollUp";
 
@@ -13,12 +12,6 @@ const Shop: React.FC<{}> = () => {
         <FiltersPanel />
         <Card />
         <ScrollUp refUse={ref} />
-      </div>
-
-      <div className='breadcrumb'>
-        <div className='base'>
-          <Breadcrumb />
-        </div>
       </div>
       {/* <ScrollUp refUse={ref} /> */}
     </div>

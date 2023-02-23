@@ -19,7 +19,7 @@ import { productFetch } from "../../Redux/slice/product/ProductController";
 import { addProduct, deleteProduct } from "../../Redux/slice/shoppingCart/shoppingCart.slice";
 import { ProductCart } from "../../Redux/slice/shoppingCart/shoppingCart.slice";
 
-import PaginationComp from "../Pagination";
+import PaginationComp from "./Pagination";
 import QuickLookModal from "./QuickLookModal";
 import AddFavoritesModal from "./AddFavoritesModal";
 import ScrollUp from "../scrollUp/ScrollUp";

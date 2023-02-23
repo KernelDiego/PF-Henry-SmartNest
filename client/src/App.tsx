@@ -1,35 +1,36 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import restProvider from 'ra-data-simple-rest';
-
+import { useAuth0 } from '@auth0/auth0-react';
+import { useLocation } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+// Redux
+import { useAppDispatch } from "./Redux/hook";
+import { addProduct } from "./Redux/slice/shoppingCart/shoppingCart.slice";
+import { getUserLogin } from "./Redux/slice/user/user.slice";
+import { changeTheme } from "./Redux/slice/theme/theme.slice";
+// Components
+import Home from './components/home/Home';
 import News from './components/news/News';
 import Shop from './components/shop/shop';
-import Home from './components/home/Home';
-import { Dashboard_user } from './components/dashboard_user/Dashboard_user';
-import Detail from './components/details/Detail';
-import AppAdmin from './components/dashboard_admin/AppAdmin';
-import Footer from './components/Footer';
 import NavBar from './components/navbar/Navbar';
+import Detail from './components/details/Detail';
+import Footer from './components/footer/Footer';
+import About from "./components/about/About";
+import { Dashboard_user } from './components/dashboard_user/Dashboard_user';
+import AppAdmin from './components/dashboard_admin/AppAdmin';
 import ShoppingCart from './components/checkout/ShoppingCart';
 import Form from './components/checkout/FormComponent';
+import { Foro_Profile } from "./components/foro/components/Foro_Profile/Foro_Profile";
 import ForoHome from './components/foro/components/ForoHome/foroHome';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './Redux/hook';
-import { addProduct } from './Redux/slice/shoppingCart/shoppingCart.slice';
-import { getUserLogin } from './Redux/slice/user/user.slice';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Page404 from './components/page404/page404';
-import About from './components/about/About';
-import { Foro_Profile } from './components/foro/components/Foro_Profile/Foro_Profile';
-import { useAuth0 } from '@auth0/auth0-react';
-import { changeTheme } from './Redux/slice/theme/theme.slice';
+import Page404 from "./components/page404/page404";
+// CSS
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   const location = useLocation();
-  // console.log(location.pathname);
   const dispatch = useAppDispatch();
-  const { user, loginWithRedirect, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   useEffect(() => {
     const productsInLS = JSON.parse(localStorage.getItem('shoppingCart') as string) ?? [];
