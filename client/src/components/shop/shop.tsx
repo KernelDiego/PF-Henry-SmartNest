@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import FiltersPanel from "../Filters/FiltersPanel";
-import Breadcrumb from "../components/BreadCrumb";
-import Card2 from "../components/CardBeta/CardBeta";
-import ScrollUp from "../components/scrollUp/ScrollUp";
+import FiltersPanel from "../filters/FiltersPanel";
+import Breadcrumb from "../BreadCrumb";
+import Card from "../card/CardBeta";
+import ScrollUp from "../scrollUp/ScrollUp";
 
 const Shop: React.FC<{}> = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,7 +11,7 @@ const Shop: React.FC<{}> = () => {
     <div className='content-shop'>
       <div className='shop-contain'>
         <FiltersPanel />
-        <Card2 />
+        <Card />
         <ScrollUp refUse={ref} />
       </div>
 

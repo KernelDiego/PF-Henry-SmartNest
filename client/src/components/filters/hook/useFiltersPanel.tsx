@@ -1,7 +1,7 @@
 import React from 'react';
-import { productsFilter } from '../../Redux/slice/product/ProductController';
-import { getProduct, FilterState, changePagination } from '../../Redux/slice/product/product.slice';
-import { useAppDispatch, useAppSelector } from '../../Redux/hook';
+import { productsFilter } from '../../../Redux/slice/product/ProductController';
+import { getProduct, FilterState, changePagination } from '../../../Redux/slice/product/product.slice';
+import { useAppDispatch, useAppSelector } from '../../../Redux/hook';
 
 const useFiltersPanel = () => {
   const dispatch = useAppDispatch();

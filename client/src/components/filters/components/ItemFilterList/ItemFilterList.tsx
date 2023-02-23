@@ -1,6 +1,6 @@
 import React from "react";
 import ItemFilter from "../ItemFilter/ItemFilter";
-import { FilterState } from "../../../Redux/slice/product/product.slice";
+import { FilterState } from "../../../../Redux/slice/product/product.slice";
 
 interface FilterByProps {
   filterList: FilterState;

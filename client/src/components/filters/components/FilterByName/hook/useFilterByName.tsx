@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../../Redux/hook";
-import { getProductName, ProductState } from "../../../../Redux/slice/product/product.slice";
-import { FilterState, getProduct } from "../../../../Redux/slice/product/product.slice";
-import { productsFilter } from "../../../../Redux/slice/product/ProductController";
+import { useAppDispatch, useAppSelector } from "../../../../../Redux/hook";
+import { getProductName, ProductState } from "../../../../../Redux/slice/product/product.slice";
+import { FilterState, getProduct } from "../../../../../Redux/slice/product/product.slice";
+import { productsFilter } from "../../../../../Redux/slice/product/ProductController";
 
 const useFilterByName = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);

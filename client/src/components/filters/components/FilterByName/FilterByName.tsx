@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useFilterByName from "./hook/useFilterByName";
-import "../FilterByName/FilterByName.css";
-import icon from "../../../assets/images/icons/search_icon_w.png";
+import icon from "../../../../assets/images/icons/search_icon_w.png";
 
 const FilterByName: React.FC<{}> = () => {
   const [

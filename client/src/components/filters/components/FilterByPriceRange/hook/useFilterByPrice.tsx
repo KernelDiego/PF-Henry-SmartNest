@@ -1,5 +1,5 @@
-import { updatePriceMinFilter, updatePriceMaxFilter, FilterState } from "../../../../Redux/slice/product/product.slice";
-import { useAppDispatch, useAppSelector } from "../../../../Redux/hook";
+import { updatePriceMinFilter, updatePriceMaxFilter, FilterState } from "../../../../../Redux/slice/product/product.slice";
+import { useAppDispatch, useAppSelector } from "../../../../../Redux/hook";
 
 const useFilterByPrice = () => {
   const dispatch = useAppDispatch();

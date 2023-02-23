@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../../../Redux/hook";
-import { updateRatingFilter, FilterState } from "../../../../Redux/slice/product/product.slice";
+import { useAppDispatch, useAppSelector } from "../../../../../Redux/hook";
+import { updateRatingFilter, FilterState } from "../../../../../Redux/slice/product/product.slice";
 
 const useFilterByRating = () => {
   const dispatch = useAppDispatch();

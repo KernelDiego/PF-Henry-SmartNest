@@ -1,5 +1,5 @@
-import { useAppDispatch } from "../../../../Redux/hook";
-import { updateCategoryFilter } from "../../../../Redux/slice/product/product.slice";
+import { useAppDispatch } from "../../../../../Redux/hook";
+import { updateCategoryFilter } from "../../../../../Redux/slice/product/product.slice";
 
 const useFilterByCategory = () => {
   const dispatch = useAppDispatch();

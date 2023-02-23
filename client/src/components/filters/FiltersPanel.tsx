@@ -5,16 +5,16 @@ import FilterByRating from './components/FilterByRating/FilterByRating';
 import FilterByCategory from './components/FilterByCategory/FilterByCategory';
 import FilterByPrice from './components/FilterByPriceRange/FilterByPrice';
 import FilterOrder from './components/FilterOrder/FilterOrder';
-import { productFetch } from '../Redux/slice/product/ProductController';
-import { resetFilters, getProduct } from '../Redux/slice/product/product.slice';
-import { useAppDispatch } from '../Redux/hook';
+import { productFetch } from '../../Redux/slice/product/ProductController';
+import { resetFilters, getProduct } from '../../Redux/slice/product/product.slice';
+import { useAppDispatch } from '../../Redux/hook';
 
-import filterName from '../assets/images/icons/filter/filterName.png';
-import filterRating from '../assets/images/icons/filter/filterRating.png';
-import filterPrice from '../assets/images/icons/filter/filterPrice.png';
-import filterCategory from '../assets/images/icons/filter/filterCategory.png';
-import filterSpace from '../assets/images/icons/filter/filterSpace.png';
-import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
+import filterName from '../../assets/images/icons/filter/filterName.png';
+import filterRating from '../../assets/images/icons/filter/filterRating.png';
+import filterPrice from '../../assets/images/icons/filter/filterPrice.png';
+import filterCategory from '../../assets/images/icons/filter/filterCategory.png';
+import filterSpace from '../../assets/images/icons/filter/filterSpace.png';
+
 import RefreshIcon from '@mui/icons-material/Refresh';
 
 const FiltersPanel: React.FC<{}> = () => {

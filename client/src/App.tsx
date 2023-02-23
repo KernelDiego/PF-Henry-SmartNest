@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 // import restProvider from 'ra-data-simple-rest';
 
 import News from './components/news/News';
-import Shop from './Shop/Shop';
+import Shop from './components/shop/shop';
 import Home from './components/home/Home';
 import { Dashboard_user } from './components/dashboard_user/Dashboard_user';
 import Detail from './components/details/Detail';
