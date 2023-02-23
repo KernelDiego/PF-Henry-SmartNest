@@ -1,10 +1,8 @@
-const { orderOptions } = require('./orderOptions')
+import { orderOptions } from './orderOptions';
 
-const orderProducts = (products, types) => {
+export const orderProducts = (products, types:string) => {
 
   let [type, order] = Object.entries(types)[0];
 
   return (orderOptions[order.toLowerCase()] || orderOptions.default) (products,type.toLowerCase());
 }
-
-module.exports = { orderProducts }
