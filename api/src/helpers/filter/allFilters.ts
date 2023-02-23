@@ -2,7 +2,7 @@ import { getModelForClass } from "@typegoose/typegoose";
 import { Product } from "../../models/Product";
 import { filterRange, filterPrice } from "./filterRange";
 import { allProductsCategories } from "./allProductsCategories";
-import { orderProducts } from "../order/orderProducts.js";
+import { orderProducts } from "../order/orderProducts";
 import { nameProduct } from "../../helpers/filter/nameProduct";
 
 const ProductModel = getModelForClass(Product);
