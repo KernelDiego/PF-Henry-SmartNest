@@ -153,8 +153,8 @@
   .dash_purchaseTitleContainer {
     display: flex;
     justify-content: center;
-    width: 100%;
     align-items: center;
+    width: 100%;
     height: 80px;
 
     img {
@@ -179,23 +179,20 @@
       align-items: center;
       border-bottom: 1px solid rgb(187, 184, 184);
       width: 90%;
-      margin-top: 15px;
+      // margin-top: 15px;
 
       .dash_onePurchase_imageSide {
         display: flex;
         justify-content: center;
-        padding: 5px;
-
-        margin: 10px;
 
         .imagePurchase {
           width: 100%;
-          height: 180px;
+          height: auto;
         }
       }
 
       .dash_onePurchase_infoSide {
-        padding: 5px;
+        padding: 15px;
         .dash_onePurchase_infoItems {
           display: flex;
           padding: 20px;
@@ -209,7 +206,7 @@
         .dash_onePurchase_PaymentInfo {
           display: flex;
           justify-content: space-around;
-          padding: 20px;
+          // padding: 20px;
 
           p {
             font-size: 17px;

@@ -59,7 +59,7 @@ export const userSlice = createSlice({
       handleSaveLS(state.userState);
     },
 
-    kevinPapitoMiAmor: (state, action: PayloadAction<userChange>) => {
+    changeUser: (state, action: PayloadAction<userChange>) => {
       state.userState = { ...state.userState, ...action.payload };
 
       handleSaveLS(state.userState);
@@ -80,5 +80,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { getUserLogin, kevinPapitoMiAmor, addFavorite, changePicture } =
+export const { getUserLogin, changeUser, addFavorite, changePicture } =
   userSlice.actions;

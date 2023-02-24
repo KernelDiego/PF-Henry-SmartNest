@@ -2,7 +2,7 @@ import { useAppSelector, useAppDispatch } from '../../Redux/hook';
 import { emptyCar } from '../../Redux/slice/shoppingCart/shoppingCart.slice';
 import { TextField, Button } from '@mui/material';
 import { Formik, Form, Field } from 'formik';
-import { fetchMP, Values, Payer } from '../../../helpers/mercadopago/index';
+import { fetchMP, Values, Payer } from '../../../helpers/mercadopago/buy';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';

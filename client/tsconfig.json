@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "helpers/mercadopago/userPurchases.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
