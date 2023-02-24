@@ -9,20 +9,20 @@ import { addProduct } from "./Redux/slice/shoppingCart/shoppingCart.slice";
 import { getUserLogin } from "./Redux/slice/user/user.slice";
 import { changeTheme } from "./Redux/slice/theme/theme.slice";
 // Components
-import Home from './components/home/Home';
-import News from './components/news/News';
-import Shop from './components/shop/shop';
+import Home from './pages/home/Home';
+import News from './pages/news/News';
+import Shop from './pages/shop/shop'
 import NavBar from './components/navbar/Navbar';
-import Detail from './components/details/Detail';
+import Detail from './pages/details/Detail';
 import Footer from './components/footer/Footer';
-import About from "./components/about/About";
-import { Dashboard_user } from './components/dashboard_user/Dashboard_user';
-import AppAdmin from './components/dashboard_admin/AppAdmin';
-import ShoppingCart from './components/checkout/ShoppingCart';
-import Form from './components/checkout/FormComponent';
-import { Foro_Profile } from "./components/foro/components/Foro_Profile/Foro_Profile";
-import ForoHome from './components/foro/components/ForoHome/foroHome';
-import Page404 from "./components/page404/page404";
+import { About } from "./pages/about/About";
+import { Dashboard_user } from './pages/dashboard_user/Dashboard_user';
+import AppAdmin from './pages/dashboard_admin/AppAdmin';
+import ShoppingCart from './pages/checkout/ShoppingCart';
+import Form from './pages/checkout/FormComponent';
+import { Foro_Profile } from "./pages/foro/components/Foro_Profile/Foro_Profile";
+import ForoHome from './pages/foro/ForoHome/foroHome';
+import Page404 from "./pages/page404/page404";
 // CSS
 import "react-toastify/dist/ReactToastify.css";
 
